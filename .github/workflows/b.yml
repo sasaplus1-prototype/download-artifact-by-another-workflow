@@ -1,0 +1,16 @@
+name: b
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: a
+          path: a.txt
+      - run: ls -l
+      - run: cat a/a.txt
